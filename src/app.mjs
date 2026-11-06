@@ -114,6 +114,25 @@ function bindNavigation() {
   }));
 }
 
+function bindGallery() {
+  const dialog = $('#gallery-dialog');
+  const image = $('#gallery-dialog-image');
+  const caption = $('#gallery-dialog-caption');
+  const close = $('.gallery-dialog-close');
+  if (!dialog || !image || !caption || !close) return;
+
+  const hide = () => dialog.close();
+  $$('[data-gallery-image]').forEach(item => item.addEventListener('click', () => {
+    image.src = item.dataset.galleryImage;
+    image.alt = item.dataset.galleryAlt;
+    caption.textContent = item.dataset.galleryAlt;
+    dialog.showModal();
+    close.focus();
+  }));
+  close.addEventListener('click', hide);
+  dialog.addEventListener('click', event => { if (event.target === dialog) hide(); });
+}
+
 function bindReveal() {
   const items = $$('.reveal, .reveal-scale');
   if (!('IntersectionObserver' in window)) {
@@ -245,6 +264,7 @@ renderPopular();
 bindMediaStation();
 bindVideos();
 bindNavigation();
+bindGallery();
 bindHeader();
 bindMotion();
 bindReveal();
