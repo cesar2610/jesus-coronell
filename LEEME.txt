@@ -1,0 +1,35 @@
+JESÚS CORONELL — SITIO WEB ESTÁTICO
+
+Esta carpeta es el sitio completo. No necesita servidor ni instalación.
+
+PUBLICAR (gratis): sube la carpeta a Cloudflare Pages o Netlify
+(arrastrar y soltar) y conecta el dominio jesuscoronell.com.
+
+PARA PROBAR EN TU COMPUTADOR: detén cualquier servidor anterior (node server.js),
+abre una terminal DENTRO de esta carpeta y ejecuta:
+  npm start
+(equivale a: npx serve -s)
+Luego entra a la dirección que muestre (normalmente http://localhost:3000).
+El -s hace que cualquier dirección extraña muestre la página de inicio.
+
+DIRECCIONES INEXISTENTES: el archivo _redirects hace que cualquier dirección
+(jesuscoronell.com/lo-que-sea) muestre la página de inicio.
+
+PARA EDITAR:
+- Textos y secciones: index.html
+- Canciones del álbum (títulos, duraciones, enlaces): src/data_catalog.mjs
+- Fotos: public/images/artist/
+- Correo de contacto: contacto@jesuscoronell.com (index.html)
+
+Después de publicar: registrar el sitio en Google Search Console
+y enviar https://jesuscoronell.com/sitemap.xml
+
+MEDIR EL TRÁFICO HACIA TUS PLATAFORMAS
+Pega en index.html (donde dice ANALÍTICA) el código de Google Analytics 4 o Plausible.
+Cada clic a Spotify, Apple Music, YouTube, Instagram, TikTok, correo o teléfono se registra como
+el evento "click_plataforma" (con la plataforma y la sección). Las reproducciones dentro de la
+página se registran como "reproducir_en_pagina".
+
+ENLACES POR CANCIÓN EN SPOTIFY
+En src/data_catalog.mjs agrega spotifyId:'ID' a cada canción (Spotify > Compartir > Copiar enlace;
+el ID es lo que va después de /track/). Así el botón lleva directo a la canción y no a una búsqueda.
